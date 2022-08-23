@@ -1,26 +1,33 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { CartWidget } from './CartWidget'
+ 
 
 export const Header = () => {
-     return(
-        <>
-        <Navbar bg="dark" variant="dark" className="justify-content-center">
-        <Container>
-          <img src="/js-maye/public/assets/img/Logo.jpg" alt="Logo" className='logo'/>  
-          <Nav className="me-auto">
-            <Nav.Link href="">Inicio</Nav.Link>
-            <Nav.Link href="">Productos</Nav.Link>
-            <Nav.Link href="">Contacto</Nav.Link> 
+  return (
+    <>
+      <Navbar  className='Navbar'>
+        <img src="./assets/img/Logo.jpg" alt="Logo" className='logo' />
+        <Container className="justify-content-center">
+          <Nav className='links'>
+            <Nav.Item>
+              <Nav.Link href="/home">Inicio</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-1">Productos</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-2">Contacto</Nav.Link>
+            </Nav.Item>
           </Nav>
-          <img src="/js-maye/public/assets/img/carrito de compras.png" alt="carrito de compras"/>
         </Container>
+        < CartWidget/>
       </Navbar>
-      </>
-     )
-           
+    </>
+  )
+
 }
- 
+
 export default Header;
- 

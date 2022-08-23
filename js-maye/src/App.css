@@ -1,8 +1,19 @@
-.me-auto{
+.Navbar{
+  background-color:#393939;
+   
+}
+.links a{
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   color:#cdc9c9;
 }
 .logo{
-width:200px;
+width:100px;
+ margin-left: 40px;
+}
+.cartshop{
+width: 30px;
+ margin-right: 50px;
+ 
+  
 }
