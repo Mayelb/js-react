@@ -1,29 +1,30 @@
 import React from "react";
 import { useState } from "react";
+ 
 
 export const ItemCount = () => {
   let [counter, setCounter] = useState(0);
 
-  const sumar = () => {
+  const handlesumar = ({stock}) => {
     setCounter(counter + 1);
-    if (counter > 5) {
-      setCounter(6);
+    if (counter > stock) {
+      setCounter(stock);
     }
   };
 
-  const restar = () => {
+  const handlerestar = () => {
     if (counter > 0) {
       setCounter(counter - 1);
     }
   };
 
   return (
-    <div className="container my-5">
-      <button onClick={restar} className="btn btn-outline-info mb-2">
+    <div>
+      <button onClick={handlerestar} className="btn btn-outline-info mb-2">
         -
       </button>
       <span className="mx-2">{counter}</span>
-      <button onClick={sumar} className="btn btn-outline-info mb-2">
+      <button onClick={handlesumar} className="btn btn-outline-info mb-2">
         +
       </button>
       <div>

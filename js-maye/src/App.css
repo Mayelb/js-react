@@ -18,6 +18,24 @@ width: 30px;
   
 }
 .agregar{
-  width: 100px;
+  width: 200px;
 } 
+.prod{
+  justify-content: center;
+   display: grid;
+   grid-template-columns: 400px 400px 400px;
+   margin-top: 20px;
+}
+.card{
+  margin: 20px;
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.1); 
+  font-family: 'Montserrat', sans-serif;
+  color:#656565;
+}
  
+.titulo{
+  margin: 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color:#656565;
+}
