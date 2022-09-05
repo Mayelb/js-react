@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
-import { ItemCount } from "../ItemListContainer/ItemCount";
+import { Link } from "react-router-dom"
+ 
 
 export const Item = ({item}) =>{
     return (
@@ -9,7 +10,7 @@ export const Item = ({item}) =>{
             <Card.Img variant="top" src={item.img}/>
             <Card.Title>{item.producto}</Card.Title>
             <Card.Text>{item.precio}</Card.Text>
-            <ItemCount />
+            <Link to={`/producto/${item.id}`} className="btn btn-info my-2">Ver más</Link>
           </Card.Body>
         </Card>
       </div> 
