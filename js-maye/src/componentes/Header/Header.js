@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { CartWidget } from './CartWidget'
+import { Link } from "react-router-dom"
  
 
 export const Header = () => {
@@ -13,13 +14,13 @@ export const Header = () => {
         <Container className="justify-content-center">
           <Nav className='links'>
             <Nav.Item>
-              <Nav.Link href="/home">Inicio</Nav.Link>
+              <Link to={'/items/invierno'}>Invierno</Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-1">Productos</Nav.Link>
+              <Link to={'/items/usoPersonal'}>Uso Personal</Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-2">Contacto</Nav.Link>
+              <Link to={'/items/mateyTe'}>Mate y Té</Link>
             </Nav.Item>
           </Nav>
         </Container>

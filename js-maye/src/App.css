@@ -6,6 +6,8 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   color:#cdc9c9;
+  padding: 10px;
+  text-decoration: none;  
 }
 .logo{
 width:100px;
@@ -13,9 +15,7 @@ width:100px;
 }
 .cartshop{
 width: 30px;
- margin-right: 50px;
- 
-  
+ margin-right: 50px;  
 }
 .agregar{
   width: 200px;
