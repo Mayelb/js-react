@@ -9,13 +9,15 @@ export const ItemListContainer = () => {
 
   const [ items, setItems] = useState([])
   const [loading, setLoading] =useState(true)
-  const [color, setColor] = useState("#36d6d2");
+  const [color, setColor] = useState();
 
   const { categoryId } = useParams() 
-  console.log(categoryId)
+  
   
   useEffect(() => {
     setLoading(true)
+
+    setColor("#36d6d2")
 
     pedirDatos()
      .then( (data) => {

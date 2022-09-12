@@ -1,7 +1,22 @@
-import { ItemCount } from "../ItemListContainer/ItemCount";
+import { ItemCount } from "../ItemCount/ItemCount";
 import Card from "react-bootstrap/Card";
+import { useState } from "react";
 
 export const ItemDetail = ({producto})=> {
+
+  const [cantidad, setCantidad] = useState(1);
+
+  const handleAgregar = ( ) => {
+    const itemToCart = {
+      id: producto.id,
+      Precio: producto.precio,
+      Producto: producto.producto,
+       
+    }
+
+    console.log (itemToCart)
+
+  }
 
     return(
         <div className="container">
@@ -11,7 +26,11 @@ export const ItemDetail = ({producto})=> {
             <Card.Title>{producto.producto}</Card.Title>
             <Card.Text>{producto.precio}</Card.Text>
             <Card.Text>{producto.descripcion}</Card.Text>
-            <ItemCount/>
+            <ItemCount max={producto.stock} 
+                       counter={cantidad}
+                       setCounter={setCantidad}
+                       handleAgregar={handleAgregar}
+            />
           </Card.Body>
         </Card>  
       </div>  

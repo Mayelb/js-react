@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <>
       <Navbar  className='Navbar'>
-        <img src="./assets/img/Logo.jpg" alt="Logo" className='logo'/>
+        <img src="/assets/img/Logo.jpg" alt="Logo" className='logo'/>
         <Container className="justify-content-center">
           <Nav className='links'>
             <Nav.Item>
