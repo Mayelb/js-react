@@ -12,12 +12,11 @@ export const ItemDetailContainer = () =>{
 
     const {productoId} = useParams()
 
-    console.log (productoId)
-    console.log (producto)
 
     useEffect(()=> {
 
         setLoading(true)
+        setColor("#36d6d2")
 
         pedirDatos()
         .then((res)=>{
