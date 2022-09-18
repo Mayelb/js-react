@@ -13,9 +13,9 @@ export const ItemDetail = ({producto})=> {
   const handleAgregar = ( ) => {
     const itemToCart = {
       id: producto.id,
-      Precio: producto.precio,
       Producto: producto.producto,
-      cantidad,
+      Precio: producto.precio,
+      cantidad
        
     }
     isInCart(producto.id)
@@ -23,7 +23,7 @@ export const ItemDetail = ({producto})=> {
   }
 
     return(
-        <div className="container">
+        <div  className="container">
         <Card border="info" style={{ width: "20rem" }} >
           <Card.Body>
             <Card.Img variant="top" src={producto.img}/>
@@ -32,6 +32,8 @@ export const ItemDetail = ({producto})=> {
               <Card.Title>{producto.producto}</Card.Title>
               <Card.Text>{producto.precio}</Card.Text>
               <Card.Text>{producto.descripcion}</Card.Text>
+            <Card.Text>stock:{producto.stock}</Card.Text>
+
               {
                 isInCart(producto.id)
                 ? <Link to="/cart" className="btn btn-info my-2">Terminar Compra</Link>

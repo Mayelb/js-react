@@ -7,15 +7,18 @@
   font-size: 20px;
   color:#cdc9c9;
   padding: 10px;
-  text-decoration: none;  
+  text-decoration: none;
 }
 .logo{
-width:100px;
+ width:100px;
  margin-left: 40px;
 }
 .cartshop{
-width: 30px;
+ display: flex;
+ width: 30px;
  margin-right: 50px;  
+ text-decoration: none;
+ color:aliceblue;
 }
 .agregar{
   width: 200px;
@@ -38,4 +41,16 @@ width: 30px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   color:#656565;
+}
+h2{
+  margin: 20px;
+  padding-top: 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color:#656565;
+}
+.total{
+  font-family: 'Montserrat', sans-serif;
+  color:#656565;
+  margin-left: 70px;
 }
