@@ -7,6 +7,7 @@ import { Cart }  from './componentes/cart/Cart';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import { CartProvider } from './componentes/context/CartContext';
 
+
  
 function App() {
 

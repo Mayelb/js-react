@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import { useContext, useState } from "react";
 import { CartContext } from '../context/CartContext';
 import { Link } from "react-router-dom"
+import "./ItemDetail.scss"
 
 export const ItemDetail = ({producto})=> {
 
@@ -13,8 +14,8 @@ export const ItemDetail = ({producto})=> {
   const handleAgregar = ( ) => {
     const itemToCart = {
       id: producto.id,
-      Producto: producto.producto,
-      Precio: producto.precio,
+      producto: producto.producto,
+      precio: producto.precio,
       cantidad
        
     }

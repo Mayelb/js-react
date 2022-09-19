@@ -1,6 +1,5 @@
-
 import {Item} from "../Item/Item"
-
+import "./ItemList.scss"
 export const ItemList = ( {items = []} ) => {
   return (
     <div className="titulo">

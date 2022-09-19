@@ -33,7 +33,7 @@ export const ItemDetailContainer = () =>{
         <div>
             {
             loading 
-            ?  <PacmanLoader  color={color} loading={loading}  size={100} />
+            ?  <PacmanLoader  color={color} loading={loading}  size={100}/>
             : <ItemDetail producto={producto}/>  
             }
        </div>

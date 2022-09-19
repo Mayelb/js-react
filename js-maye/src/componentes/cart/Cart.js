@@ -1,35 +1,42 @@
 import React from 'react'
 import { useContext } from "react";
 import { CartContext } from '../../componentes/context/CartContext';
-import Card from "react-bootstrap/Card";
-import { BsTrash } from "react-icons/bs";
+import { Link } from 'react-router-dom';
+import { ItemCart } from "../itemCart/ItemCart"
+import'./Cart.scss'
  
 
     export const Cart = () => {
-    const { cart, cartTotal, emptyCart, removeItem } = useContext(CartContext)
+    const {cart, cartTotal, emptyCart} = useContext(CartContext)
+
+    if(cart.length === 0){
+      return(
+        <div className=" container my-5">
+           <div className="compra justify-content-center"> 
+             <h2>Carrito Vacío</h2>
+             <Link to="/" className="btn btn-info my-2">Ir a comprar</Link>
+           </div>
+        </div>
+      )
+    }
     
  
     return (
-     <div>
+     <div className='container my-5'>
        <h2>Carrito</h2>
 
-       { cart.map((producto)=>(
-        <div key={producto.id} className="container">
-        <Card style={{ width: "20rem"}}>
-          <Card.Body>
-            <Card.Title> Producto: {producto.producto}</Card.Title>
-            <Card.Text>Precio: {producto.precio}</Card.Text>
-            <Card.Text>Cantidad: {producto.cantidad}</Card.Text>
-            <button onClick={() =>removeItem(producto.id)} className="btn btn-info my-2"><BsTrash/></button>
-          </Card.Body>
-        </Card>
-      </div> 
+       { cart.map((producto) => {
+        return(
+           <ItemCart producto={producto} key={producto.id}/> 
+           );
 
-       ))}
-       <div className='total'>
-         <h4> Total:${cartTotal()}</h4>
-         <button onClick={emptyCart} className="btn btn-info my-2">Vaciar Carrito</button>
-       </div>
+          })}
+        
+      <div className='total'>   
+        <h4>Total:${cartTotal()}</h4>
+        <button onClick={emptyCart} className="btn btn-info my-2">Vaciar Carrito</button>
+      </div>
+          
      </div>
    )
  }

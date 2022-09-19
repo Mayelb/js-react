@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./ItemCount.scss"
  
 
 export const ItemCount = ({max, counter, setCounter, handleAgregar}) => {

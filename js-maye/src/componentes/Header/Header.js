@@ -4,9 +4,10 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { CartWidget } from '../cartWidget/CartWidget'
 import { Link } from "react-router-dom"
+import "./header.scss"
  
-
 export const Header = () => {
+ 
   return (
     <>
       <Navbar  className='Navbar'>
