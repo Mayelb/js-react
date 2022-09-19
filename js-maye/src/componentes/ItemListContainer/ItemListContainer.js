@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { ItemList } from '../itemList/ItemList'
 import { pedirDatos } from '../../helpers/pedirDatos'
 import { useParams } from "react-router-dom"
-import PacmanLoader from "react-spinners/PacmanLoader"
+import Loader from '../loader/Loader'
   
 
 export const ItemListContainer = () => {
 
   const [ items, setItems] = useState([])
   const [loading, setLoading] =useState(true)
-  const [color, setColor] = useState();
+   
 
   const { categoryId } = useParams() 
   
@@ -17,7 +17,6 @@ export const ItemListContainer = () => {
   useEffect(() => {
     setLoading(true)
 
-    setColor("#36d6d2")
 
     pedirDatos()
      .then( (data) => {
@@ -39,7 +38,7 @@ export const ItemListContainer = () => {
   return (
       <div>
         {
-          loading ? <PacmanLoader  color={color} loading={loading}  size={100} />
+          loading ? <Loader />
           :<ItemList items={items}/> 
         }
      </div>

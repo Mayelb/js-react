@@ -2,21 +2,20 @@ import { useEffect, useState } from "react";
 import { pedirDatos } from "../../helpers/pedirDatos"
 import { useParams }  from "react-router-dom"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
-import PacmanLoader from "react-spinners/PacmanLoader"
+import Loader from "../loader/Loader";
 
 export const ItemDetailContainer = () =>{
 
     const [producto, setProducto] = useState(null)
     const [loading, setLoading ] = useState( true)
-    const [color, setColor] = useState("#36d6d2");
-
+    
     const {productoId} = useParams()
 
 
     useEffect(()=> {
 
         setLoading(true)
-        setColor("#36d6d2")
+        
 
         pedirDatos()
         .then((res)=>{
@@ -33,7 +32,7 @@ export const ItemDetailContainer = () =>{
         <div>
             {
             loading 
-            ?  <PacmanLoader  color={color} loading={loading}  size={100}/>
+            ?  <Loader/>
             : <ItemDetail producto={producto}/>  
             }
        </div>
