@@ -1,7 +1,7 @@
 import { ItemCount } from "../ItemCount/ItemCount";
 import Card from "react-bootstrap/Card";
 import { useContext, useState } from "react";
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import { Link } from "react-router-dom"
 import "./ItemDetail.scss"
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { ItemList } from '../itemList/ItemList'
-import { pedirDatos } from '../../helpers/pedirDatos'
 import { useParams } from "react-router-dom"
 import Loader from '../loader/Loader'
-  
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import { db } from '../../firebase/config'
 
 export const ItemListContainer = () => {
 
@@ -17,22 +17,23 @@ export const ItemListContainer = () => {
   useEffect(() => {
     setLoading(true)
 
+    const itemsRef = collection(db,'productos')
+    const q = categoryId 
+    ? query(itemsRef, where ('category', '==', categoryId))
+    : itemsRef
 
-    pedirDatos()
-     .then( (data) => {
-        if (!categoryId){
-         setItems(data)
-        }else{
-          setItems( data.filter((item)=> item.category === categoryId) )
-        }
-     })
-     .catch ((error) => {
-         console.log(error)
-     })
-    .finally(()=>{
-      setLoading(false)
+    getDocs(q)
+    .then((resp)=> {
+
+      const itemsDB = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+      console.log(itemsDB)
+
+      setItems(itemsDB)
+
     })
-
+    .finally(() =>{
+      setLoading(false)
+    } )
   }, [categoryId])
 
   return (

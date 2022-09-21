@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from "react";
-import { CartContext } from '../../componentes/context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import Card from "react-bootstrap/Card";
 import { BsTrash } from "react-icons/bs";
 import "./ItemCart.scss"
