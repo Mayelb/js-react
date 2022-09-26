@@ -5,10 +5,10 @@ import "./CartWiidget.scss"
 
  export const CartWidget = () => {
 
-  const {cartQuantity,cart}  = useContext(CartContext)
+  const {cartQuantity}  = useContext(CartContext)
    return (
     
-     <Link to="/cart" className={`cartshop ${cart.length > 0 ? 'cartshop-visible' :''}`}>  
+     <Link to="/cart" className='cartShop'>  
          <img src="/assets/img/cart.png" alt="cart"/>
          <span>{cartQuantity()}</span>
      </Link>

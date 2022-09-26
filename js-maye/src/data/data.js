@@ -6,7 +6,7 @@ export const stock = [
     img: "/assets/img/taza.jpg",
     stock: 10,
     descripcion: "Taza para café de cerámica esmaltada",
-    category: "mate y te"
+    category: "mateyTe"
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const stock = [
     img: "/assets/img/azucarera.jpg",
     stock: 10,
     descripcion: "Corazón grabado a fuego para nunca borrarse. Es apta para microondas y lavavajillas",
-    category:"mate y te"
+    category:"mateyTe"
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const stock = [
     img: "/assets/img/mate.jpg",
     stock: 10,
     descripcion: "Mate de madera de algarrobo, pintado a mano",
-    category:"mate y te"
+    category:"mateyTe"
   },
   {
     id: 4,
@@ -60,7 +60,7 @@ export const stock = [
     img: "/assets/img/vasoTermico.jpg",
     stock: 10,
     descripcion: "Vaso térmico de polipropileno. Es apto para microondas (sin tapa y sin banda de silicona)",
-    category:"uso personal"
+    category:"usoPersonal"
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export const stock = [
     img: "/assets/img/mugCafe.jpg",
     stock: 10,
     descripcion: "Vaso térmico mug, con tapa flex ",
-    category:"uso personal"
+    category:"usoPersonal"
   },
   {
     id: 9,
@@ -78,6 +78,6 @@ export const stock = [
     img: "/assets/img/mugCafePastel.jpg",
     stock: 10,
     descripcion: "Vasos mug café con tapa y holder de silicona, 300ml",
-    category:"uso personal"
+    category:"usoPersonal"
   },
 ];
