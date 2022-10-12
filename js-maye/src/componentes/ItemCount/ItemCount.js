@@ -1,15 +1,12 @@
 import React from "react";
-import "./ItemCount.scss"
- 
+import "./ItemCount.scss";
 
-export const ItemCount = ({max, counter, setCounter, handleAgregar}) => {
- 
-
+export const ItemCount = ({ max, counter, setCounter, handleAgregar }) => {
   const handleSumar = () => {
     if (counter < max) {
       setCounter(counter + 1);
     }
-  }
+  };
 
   const handleRestar = () => {
     if (counter > 1) {
@@ -27,7 +24,13 @@ export const ItemCount = ({max, counter, setCounter, handleAgregar}) => {
         +
       </button>
       <div>
-        <button onClick={handleAgregar} className="agregar btn btn-outline-info">Agregar</button>
+        <button
+          onClick={handleAgregar}
+          className="agregar btn btn-outline-info"
+          disabled={max === 0}
+        >
+          Agregar
+        </button>
       </div>
     </div>
   );

@@ -1,49 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { ItemList } from '../itemList/ItemList'
-import { useParams } from "react-router-dom"
-import Loader from '../loader/Loader'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../../firebase/config'
+import React, { useEffect, useState } from "react";
+import { ItemList } from "../itemList/ItemList";
+import { useParams } from "react-router-dom";
+import Loader from "../loader/Loader";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const [ items, setItems] = useState([])
-  const [loading, setLoading] =useState(true)
-   
+  const { categoryId } = useParams();
 
-  const { categoryId } = useParams() 
-  
-  
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
 
-    const itemsRef = collection(db,'productos')
-    const q = categoryId 
-    ? query(itemsRef, where ('category', '==', categoryId))
-    : itemsRef
+    const itemsRef = collection(db, "productos");
+    const q = categoryId
+      ? query(itemsRef, where("category", "==", categoryId))
+      : itemsRef;
 
     getDocs(q)
-    .then((resp)=> {
+      .then((resp) => {
+        const itemsDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        console.log(itemsDB);
 
-      const itemsDB = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-      console.log(itemsDB)
+        setItems(itemsDB);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [categoryId]);
 
-      setItems(itemsDB)
+  return <div>{loading ? <Loader /> : <ItemList items={items} />}</div>;
+};
 
-    })
-    .finally(() =>{
-      setLoading(false)
-    } )
-  }, [categoryId])
-
-  return (
-      <div>
-        {
-          loading ? <Loader />
-          :<ItemList items={items}/> 
-        }
-     </div>
-  )
-}
-
-export default ItemListContainer
+export default ItemListContainer;

@@ -1,44 +1,31 @@
 import { useEffect, useState } from "react";
-import { useParams }  from "react-router-dom"
-import { ItemDetail } from "../ItemDetail/ItemDetail"
+import { useParams } from "react-router-dom";
+import { ItemDetail } from "../ItemDetail/ItemDetail";
 import Loader from "../loader/Loader";
-import { db } from '../../firebase/config'
+import { db } from "../../firebase/config";
 import { doc, getDoc } from "firebase/firestore";
 
-export const ItemDetailContainer = () =>{
+export const ItemDetailContainer = () => {
+  const [producto, setProducto] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    const [producto, setProducto] = useState(null)
-    const [loading, setLoading ] = useState( true)
-    
-    const {productoId} = useParams()
+  const { productoId } = useParams();
 
+  useEffect(() => {
+    setLoading(true);
 
-    useEffect(() => {
+    const docRef = doc(db, "productos", productoId);
 
-        setLoading(true)
+    getDoc(docRef)
+      .then((doc) => {
+        setProducto({ id: doc.id, ...doc.data() });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
-        const docRef = doc(db,"productos", productoId)
+  return <div>{loading ? <Loader /> : <ItemDetail producto={producto} />}</div>;
+};
 
-        getDoc(docRef)
-           .then((doc) => {
-            setProducto({id: doc.id, ...doc.data()})
-           })
-           .finally(() => {
-            setLoading(false)
-           })
-         
-
-    }, [])
-
-    return(
-        <div>
-            {
-            loading 
-            ?  <Loader/>
-            : <ItemDetail producto={producto}/>  
-            }
-       </div>
-    )
-}
-
-export default ItemDetailContainer
+export default ItemDetailContainer;

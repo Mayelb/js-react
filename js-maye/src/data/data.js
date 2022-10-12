@@ -67,7 +67,7 @@ export const stock = [
     producto: "Mug café",
     precio: "900",
     img: "/assets/img/mugCafe.jpg",
-    stock: 10,
+    stock: 0,
     descripcion: "Vaso térmico mug, con tapa flex ",
     category:"usoPersonal"
   },
